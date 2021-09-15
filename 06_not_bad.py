@@ -11,6 +11,8 @@ Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 
 def not_bad(s):
     # +++ SUA SOLUÇÃO +++
+    if "not" in s:
+        n = s
     return
 
 
