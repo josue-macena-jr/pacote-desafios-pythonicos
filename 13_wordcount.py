@@ -56,7 +56,34 @@ import sys
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+def count_words(fileName):
+    f = open(fileName,'r')
+    listWords = f.read().lower().split()
+    dictWords = {i:listWords.count(i) for i in listWords}
+    return dictWords
 
+def general_print(dictWords, keyOrder, reverseOrder, count):
+    itens = []
+    for item in sorted(dictWords, key =keyOrder, reverse=reverseOrder):
+            itens.append([item, dictWords[item]])
+    if count == -1:
+        for item in itens:
+            print(item)
+    else:
+        for item in range(0,count):
+            print(itens[item][0],itens[item][1])
+            
+
+def print_words(fileName):
+    dictWords = count_words(fileName)
+    general_print(dictWords,None,False,-1)
+    
+
+def print_top(fileName):
+    dictWords = count_words(fileName)
+    general_print(dictWords, dictWords.get, True,20)
+    
+    
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.

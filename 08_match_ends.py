@@ -10,7 +10,11 @@ PS: Python não possui o operador ++, porém += funciona.
 
 def match_ends(words):
     # +++ SUA SOLUÇÃO +++
-    return
+    count = 0
+    for word in words:
+        if len(word)>=2 and word[0]==word[-1]:
+            count +=1
+    return count
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -37,3 +41,4 @@ if __name__ == '__main__':
     test(match_ends, ['aba', 'xyz', 'aa', 'x', 'bbb'], 3)
     test(match_ends, ['', 'x', 'xy', 'xyx', 'xx'], 2)
     test(match_ends, ['aaa', 'be', 'abc', 'hello'], 1)
+    test(match_ends,['zzz','zzzj','abcda','a'],2)

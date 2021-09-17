@@ -10,7 +10,14 @@ Irá retornar: [1, 2, 3]
 
 def remove_adjacent(nums):
     # +++ SUA SOLUÇÃO +++
-    return
+    newNums = []
+    newNums.extend(nums)
+    for i in range(len(nums)-1):
+        if nums[i] == nums[i+1]:
+            newNums[1+i] = "none"
+    for j in range(newNums.count('none')):
+        newNums.remove('none')
+    return newNums
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

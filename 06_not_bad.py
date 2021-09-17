@@ -11,14 +11,12 @@ Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 
 def not_bad(s):
     # +++ SUA SOLUÇÃO +++
-    listS = s.split(' ')
-    if "not" in listS:
-        if "bad" in listS:
-            if listS.index("not") < listS.index("bad"):
-                s = ' '.join(listS[:listS.index('not')]) + " good" + ' '.join(listS[listS.index("bad")+1:])
-        if "bad!" in listS:
-            if listS.index("not") < listS.index("bad!"):
-                s = ' '.join(listS[:listS.index('not')]) + " good!" + ' '.join(listS[listS.index("bad!")+1:])
+    import re
+    notMatch = re.search('not',s)
+    badMatch = re.search('bad',s)
+    if (notMatch is not None) and (badMatch is not None):
+        if notMatch.end() < badMatch.start():
+            s = s.replace(s[notMatch.start():badMatch.end()],'good')
     return s
 
 

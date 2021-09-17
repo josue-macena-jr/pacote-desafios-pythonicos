@@ -13,7 +13,17 @@ antes de combina-las.
 
 def front_x(words):
     # +++ SUA SOLUÇÃO +++
-    return
+    xList = list()
+    nList = list()
+    for word in words:
+        if word[0]=='x':
+            xList.append(word)
+        else:
+            nList.append(word)
+    xList.sort()
+    nList.sort()
+    xList.extend(nList)
+    return xList
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
